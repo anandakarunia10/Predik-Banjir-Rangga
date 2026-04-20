@@ -33,6 +33,7 @@ def ndvi():
 def stats():
     year = request.args.get("year")
     try:
+        # Memastikan fungsi uhi_stats di gee.py mengembalikan info numerik
         return jsonify(uhi_stats(year))
     except Exception as e:
         return jsonify({"error": str(e)}), 500
