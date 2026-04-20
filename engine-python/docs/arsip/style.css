@@ -1,0 +1,32 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Biar nggak ada double scroll */
+}
+
+header {
+    background:#333;
+    color:white;
+    padding:10px;
+    text-align:center;
+}
+
+.container { display:flex; }
+
+#map {
+    height: calc(100vh - 100px); /* Kurangi tinggi header/tombol kamu (misal 100px) */
+    width: 100%;
+}
+
+.panel {
+    width:30%;
+    padding:10px;
+    background:#f4f4f4;
+}
+
+button {
+    width:100%;
+    padding:10px;
+    margin:5px 0;
+}
+

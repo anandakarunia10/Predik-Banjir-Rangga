@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebGIS UHI & NDVI - Kabupaten Tabanan</title>
+
+    <link rel="icon" href="data:,">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css" />
+
+    <style>
+        body { margin: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; display: flex; overflow: hidden; }
+        
+        /* Map Section */
+        #map { flex: 1; height: 100vh; background: #e0e0e0; }
+
+        /* Panel Section */
+        .panel { 
+            width: 350px; 
+            height: 100vh; 
+            background: #f8f9fa; 
+            padding: 20px; 
+            box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+            overflow-y: auto;
+            box-sizing: border-box;
+        }
+
+        h2 { color: #2c3e50; font-size: 22px; margin-bottom: 20px; border-bottom: 2px solid #3498db; padding-bottom: 10px; }
+        
+        .control-group { margin-bottom: 15px; }
+        label { display: block; font-weight: bold; margin-bottom: 5px; color: #555; }
+        
+        select, button, input[type="file"] { 
+            width: 100%; 
+            padding: 12px; 
+            border-radius: 6px; 
+            border: 1px solid #ddd; 
+            font-size: 14px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        button { 
+            cursor: pointer; 
+            font-weight: bold; 
+            transition: all 0.3s ease; 
+            color: white; 
+            border: none;
+        }
+
+        #btnUHI { background-color: #e74c3c; }
+        #btnUHI:hover { background-color: #c0392b; }
+
+        #btnNDVI { background-color: #2ecc71; }
+        #btnNDVI:hover { background-color: #27ae60; }
+
+        #btnStats { background-color: #34495e; }
+        #btnStats:hover { background-color: #2c3e50; }
+
+        #stats { 
+            background: #fff; 
+            padding: 15px; 
+            border-radius: 6px; 
+            border-left: 5px solid #3498db; 
+            margin-top: 15px; 
+            min-height: 40px;
+            font-size: 14px;
+        }
+
+        canvas { margin-top: 20px; max-width: 100%; }
+
+        .file-upload { margin-top: 20px; padding-top: 15px; border-top: 1px solid #ddd; }
+    </style>
+</head>
+
+<body>
+
+    <div id="map"></div>
+
+    <div class="panel">
+        <h2>WebGIS Tabanan</h2>
+
+        <div class="control-group">
+            <label for="year">Pilih Tahun Analisis:</label>
+            <select id="year">
+                <option value="2020">2020</option>
+                <option value="2021">2021</option>
+                <option value="2022" selected>2022</option>
+                <option value="2023">2023</option>
+                <option value="2024">2024</option>
+                <option value="2025">2025</option>
+                <option value="2026">2026</option>
+            </select>
+        </div>
+
+        <button id="btnUHI">Tampilkan Peta Suhu (UHI)</button>
+        <button id="btnNDVI">Tampilkan Peta Vegetasi (NDVI)</button>
+        <button id="btnStats">Lihat Analisis Statistik</button>
+
+        <div id="stats">Siap memproses data...</div>
+        
+        <canvas id="chart"></canvas>
+
+        <div class="file-upload">
+            <label>Overlay Batas Wilayah (GeoJSON):</label>
+            <input type="file" id="geojsonFile">
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>
