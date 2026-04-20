@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>UHI Subak Tabanan</title>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+body { margin:0; font-family:Arial; }
+#map { width:70%; height:100vh; float:left; }
+.panel { width:30%; float:right; padding:10px; }
+button { width:100%; margin:5px 0; padding:10px; }
+</style>
+
+</head>
+
+<body>
+
+<div id="map"></div>
+
+<div class="panel">
+
+<h2>Urban Heat Tabanan</h2>
+
+<select id="year">
+<option>2020</option>
+<option>2021</option>
+<option selected>2022</option>
+<option>2023</option>
+<option>2024</option>
+<option>2025</option>
+<option>2026</option>
+</select>
+
+<button id="btnUHI">Tampilkan UHI</button>
+<button id="btnNDVI">Tampilkan NDVI</button>
+<button id="btnStats">Statistik</button>
+
+<div id="stats"></div>
+<canvas id="chart"></canvas>
+
+<input type="file" id="geojsonFile">
+
+</div>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>

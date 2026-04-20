@@ -1,0 +1,24 @@
+body { margin:0; font-family:Arial; }
+
+header {
+    background:#333;
+    color:white;
+    padding:10px;
+    text-align:center;
+}
+
+.container { display:flex; }
+
+#map { width:70%; height:90vh; }
+
+.panel {
+    width:30%;
+    padding:10px;
+    background:#f4f4f4;
+}
+
+button {
+    width:100%;
+    padding:10px;
+    margin:5px 0;
+}
